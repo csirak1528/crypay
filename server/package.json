@@ -1,0 +1,23 @@
+{
+  "name": "crypay-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "start-node": "nodemon index.js"
+  },
+  "author": "Caleb Sirak",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.26.1",
+    "coingecko-api": "^1.0.10",
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "express-group-routes": "^1.1.0",
+    "node-cron": "^3.0.0",
+    "nodemon": "^2.0.15",
+    "web3": "^1.7.1"
+  }
+}

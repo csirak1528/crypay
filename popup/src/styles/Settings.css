@@ -1,0 +1,77 @@
+.settings-view {
+  position: absolute;
+  width: 310px;
+  height: 100%;
+  border: 1px solid black;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: black;
+  color: white;
+  padding-bottom: 20px;
+  transition: all 0.3s;
+  animation-duration: 0.4s;
+  animation-name: slidein-settings;
+  box-shadow: 2px 2px 8px 2px #888888;
+  z-index: 10;
+  left: 60px;
+}
+.shift-left {
+  margin-right: 10px;
+}
+
+.hide-menu {
+  display: none;
+}
+
+@keyframes slidein-settings {
+  from {
+    left: 310px;
+  }
+
+  to {
+    left: 60px;
+  }
+}
+
+.header {
+}
+
+.row-menu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.clickable {
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.clickable:hover {
+  transition: all 0.3s;
+  opacity: 0.5;
+}
+
+.list-item-settings {
+  cursor: pointer;
+  display: flex;
+  text-align: left;
+  transition: all 0.3s;
+  font-size: 20px;
+}
+
+.list-item-settings h4 {
+  width: 200px;
+  padding: 4px;
+  padding-left: 15px;
+
+  border-bottom: 1px solid white;
+}
+
+.list-item-settings:hover {
+  transition: all 0.3s;
+  background-color: white;
+  color: black;
+}

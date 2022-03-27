@@ -1,0 +1,160 @@
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: black;
+  border-radius: 10px;
+  background-clip: content-box; /* THIS IS IMPORTANT */
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 2px;
+  background: white;
+  height: 70px;
+}
+.no-scroll {
+  overflow: hidden;
+}
+h4 {
+  font-size: 17px;
+}
+body {
+  overflow-x: hidden;
+  background-color: black;
+}
+
+.main-view {
+  width: 370px;
+  max-height: 500px;
+  border: 1px solid black;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: black;
+  color: white;
+  padding-bottom: 20px;
+  transition: all 0.3s;
+}
+* {
+  font-family: "Courier New", Courier, monospace;
+}
+
+.money-text {
+  text-align: center;
+  margin: 5px;
+}
+.middle-center {
+  display: flex;
+  justify-content: center;
+}
+
+.balance-wrapper {
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+}
+.header-logo {
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.selection-button {
+  padding: 10px;
+  border: 1px solid;
+  min-width: 80px;
+  text-align: center;
+  margin: 20px;
+  transition: all 0.3s;
+  cursor: pointer;
+  font-weight: 600;
+  color: white;
+  background-color: black;
+  font-size: 17px;
+}
+
+.selection-button:hover {
+  transition: all 0.3s;
+  color: black;
+  background-color: white;
+}
+
+.actions-wrapper {
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.token-name-wrapper {
+  align-items: center;
+  width: 200px;
+}
+
+.token-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.2s;
+  padding: 0px 10px 0px 10px;
+  cursor: pointer;
+}
+
+.token-wrapper:hover {
+  transition: all 0.3s;
+  background-color: white;
+  color: black;
+}
+.token-image {
+  width: 25px;
+  height: 25px;
+  padding: 5px;
+  border-radius: 50%;
+}
+
+.search-bar-wrapper {
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.search-bar {
+  font-size: 17px;
+
+  width: 300px;
+  outline: none;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 600;
+  padding: 10px;
+  margin-right: -16px;
+}
+
+.search {
+  position: relative;
+  transition: all 0.3s;
+  right: 10px;
+  cursor: pointer;
+}
+
+.search:hover {
+  transition: all 0.3s;
+  opacity: 0.5;
+}
+
+.clickable-icon {
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.clickable-icon:hover {
+  transition: all 0.3s;
+  opacity: 0.5;
+}
