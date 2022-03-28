@@ -2,6 +2,18 @@ import "../styles/Menu.css"
 import React, { useState } from "react"
 import axios from "axios"
 
+import {
+    RedditIcon,
+    RedditShareButton,
+    TwitterIcon,
+    TwitterShareButton,
+    TelegramIcon,
+    TelegramShareButton,
+
+
+
+
+} from "react-share";
 const config = {
     headers: {
         "Access-Control-Allow-Origin": "*",
@@ -10,7 +22,9 @@ const config = {
 };
 
 const base = "http://localhost:3001"
-
+const shareUrl = "Check out CryPay: http://localhost:3000.\n\nIt lets you pay with crypto on sites like Amazon or eBay"
+const title = "Crypay: Crypto in the real world"
+const iconSize = 32;
 
 const Menu = ({ viewMode, setViewMode }) => {
     const [mode, setMode] = useState("")
@@ -29,15 +43,17 @@ const Menu = ({ viewMode, setViewMode }) => {
 
     const submitReport = async () => {
         if (report) {
-            (await axios({
+            axios({
                 method: 'post',
-                url: `${base}/reports`,
+                url: `${base}/feedback`,
                 data: {
-                    report: report
+                    feedback: report
                 },
                 headers: config.headers
-            }))
+            })
             alert("Thanks for helping us improve the platform")
+            setReport("")
+            setMode("")
         }
     }
 
@@ -66,6 +82,28 @@ const Menu = ({ viewMode, setViewMode }) => {
                 <div className="row-menu" >
                     <h4 className="exit clickable" onClick={() => { setMode("") }}>Back</h4>
                     <h3 className="header">Share To Friends</h3>
+                </div>
+                <div>
+                    <div className="shareable-icons">
+                        <div className="shareable">
+                            <h3>Reddit</h3>
+                            <RedditShareButton url={shareUrl} title={title}>
+                                <RedditIcon size={iconSize} round />
+                            </RedditShareButton>
+                        </div>
+                        <div className="shareable">
+                            <h3>Twitter</h3>
+                            <TwitterShareButton url={"\n\n" + shareUrl} title={title}>
+                                <TwitterIcon size={iconSize} round />
+                            </TwitterShareButton>
+                        </div>
+                        <div className="shareable">
+                            <h3>Telegram</h3>
+                            <TelegramShareButton url={"\n\n" + shareUrl} title={title}>
+                                <TelegramIcon size={iconSize} round />
+                            </TelegramShareButton>
+                        </div>
+                    </div>
                 </div>
             </div>
         )

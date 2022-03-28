@@ -1,7 +1,7 @@
 .menu-view {
   position: absolute;
   width: 310px;
-  height: 600px;
+  height: 100%;
   border: 1px solid black;
 
   overflow: hidden;
@@ -104,5 +104,34 @@
 }
 
 .report-wrapper {
+  margin: auto;
+}
+
+.share-count {
+  color: white;
+}
+.shareable {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.shareable:hover {
+  opacity: 0.6;
+  transition: all 0.3s;
+}
+.shareable-wrapper {
+}
+
+.shareable-icons {
+  display: flex;
+  align-self: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 310px;
   margin: auto;
 }

@@ -5,14 +5,17 @@ const timeout = (ms) => {
 
 const apiUrl = "http://localhost:3001"
 window.onload = function () {
-    document.getElementById('pay').onclick = async () => {
+    document.getElementById('pay').onclick = activateScripts
+
+
+    const k = async () => {
         document.getElementById('verifyres').innerHTML = "<h3 class=\"waiting transaction-info\">Waiting<h3>"
         let price = await getPrice()
         var iteminfo = localStorage.getItem("iteminfo")
         var id = await createPayment(price, iteminfo)
 
         if (id) {
-            var url = `http://localhost:3000?id=${id}`;
+            var url = `http://localhost:3000/pay?id=${id}`;
             var width = 390;
             var height = 600;
             var left = window.screenX + (window.outerWidth - width) / 2;
@@ -23,6 +26,15 @@ window.onload = function () {
         }
     }
 };
+
+const activateScripts = async () => {
+    let queryOptions = { active: true, currentWindow: true };
+    let [tab] = await chrome.tabs.query(queryOptions);
+    chrome.scripting.executeScript({
+        files: ["scripts1.js"],
+        target: { tabId: tab.id },
+    })
+}
 
 const createPayment = async (price, info) => {
     var id = UUIDv4.generate()

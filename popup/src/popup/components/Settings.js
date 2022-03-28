@@ -6,11 +6,11 @@ const Settings = ({ viewMode, setViewMode }) => {
                 <h1 className="header">Settings</h1>
                 <h3 className="exit clickable" onClick={() => { setViewMode("main") }}>Exit</h3>
             </div>
-            <div className="list-items">
+            {/* <div className="list-items">
                 <div className="list-item-settings" >
                     <h4>Defaults</h4>
                 </div>
-            </div>
+            </div> */}
         </div >);
 }
 

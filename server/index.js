@@ -2,6 +2,8 @@ const axios = require('axios');
 const express = require('express')
 var bodyParser = require('body-parser');
 require('express-group-routes');
+const uuid = require('uuid');
+
 
 const app = express()
 var cors = require('cors')
@@ -26,7 +28,7 @@ const { searchTickers } = helpers
 const data = require("./tickers.json")
 var tickers = { data }
 
-const cache = {}
+const cache = { feedback: {} }
 const CoinGeckoClient = new CoinGecko();
 const second = 1000
 const minute = 60 * second;
@@ -113,10 +115,10 @@ app.get('/all', async (req, res) => {
     res.json({ all: data })
 })
 
-// app.get('/cache', async (req, res) => {
-//     console.log(cache)
-//     res.json({ cache })
-// })
+app.get('/cache', async (req, res) => {
+    console.log(cache)
+    res.json({ cache })
+})
 
 app.post('/search', async (req, res) => {
     let searchIds = searchTickers(tickers.data, req.body.term)
@@ -135,6 +137,11 @@ const port = process.env.PORT || 3001
 
 app.listen(port, async () => {
     console.log(`Example app listening on port ${port}`)
+})
+
+app.post('/feedback', async (req, res) => {
+    cache.feedback[uuid.v4()] = req.body.feedback
+    res.sendStatus(200)
 })
 
 module.exports = {

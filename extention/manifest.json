@@ -3,8 +3,21 @@
   "name": "Crypay - One-Click Crypto Payments",
   "version": "1.0.3",
   "manifest_version": 3,
-  "permissions": ["storage", "tabs", "activeTab"],
+  "permissions": ["storage", "tabs", "activeTab","scripting"],
   "action": {
     "default_popup": "index.html"
-  }
+  },
+  "icons": {
+    "16": "icons/black.png",
+    "48": "icons/black.png",
+    "128": "icons/black.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["scripts.js"],
+      "match_origin_as_fallback": true
+    }
+  ],
+  "host_permissions": ["*://*/*"]
 }
