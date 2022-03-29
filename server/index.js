@@ -96,7 +96,11 @@ app.group("/payments", (router) => {
                 status: verify
             }
             res.json({ res: "success" })
-        } else {
+        }
+        else if (verify == "created") {
+            res.json({ res: "waiting" })
+        }
+        else {
             res.json({ res: "fail" })
         }
     })

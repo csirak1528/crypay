@@ -5,10 +5,7 @@ const timeout = (ms) => {
 
 const apiUrl = "http://localhost:3001"
 window.onload = function () {
-    document.getElementById('pay').onclick = activateScripts
-
-
-    const k = async () => {
+    document.getElementById('pay').onclick = async () => {
         document.getElementById('verifyres').innerHTML = "<h3 class=\"waiting transaction-info\">Waiting<h3>"
         let price = await getPrice()
         var iteminfo = localStorage.getItem("iteminfo")
@@ -74,6 +71,7 @@ const verifyTransaction = async (id) => {
     const status = res.body.status
     if (status == "complete") {
         document.getElementById('verifyres').innerHTML = "<h3 class=\"verified transaction-info\">Transaction Verified!<h3>"
+        activateScripts()
     } else if (status == "fail") {
         document.getElementById('verifyres').innerHTML = "<h3 class=\"failed transaction-info\">Transaction Failed<h3>"
     }

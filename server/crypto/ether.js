@@ -27,15 +27,19 @@ const getEthBalances = async (accts, price) => {
 
 const verifyTransaction = async (data) => {
     let res = await web3.eth.getTransactionReceipt(data.transactionHash)
-    let status = "complete"
-    let checkKeys = ["blockHash", "blockNumber", "from", "gasUsed", "to", "transactionHash"]
-    for (key in checkKeys) {
-        if (data[key] != res[key]) {
-            status = "fail"
-            break;
+    if (res) {
+        let status = "complete"
+        let checkKeys = ["blockHash", "blockNumber", "from", "gasUsed", "to", "transactionHash"]
+        for (key in checkKeys) {
+            if (data[key] != res[key]) {
+                status = "fail"
+                break;
+            }
         }
+        return status
+    } else {
+        return null
     }
-    return status
 }
 
 

@@ -241,7 +241,7 @@ function App() {
           }
           if (receipt != null) {
             setPayReciept(receipt)
-            completeTransaction(receipt)
+            await completeTransaction(receipt)
             await getBalance()
             setItem({ price: 0 })
             setPaymentLoading(false)

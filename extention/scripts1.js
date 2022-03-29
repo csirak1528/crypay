@@ -24,7 +24,7 @@ const clickCard = () => {
     document.querySelector("#mainContent > div.two-column.container.no-gutters > div > div.left-column.col-7.col-lg-8 > section.module.payment-methods.auto-address-container > div").style.opacity = "0"
     document.querySelector("#payment-selection-fieldset > div.payment-entry--CC.payment-entry > div.render-summary.payment-entry--render-summary.show-all-logos.selectable").click();
 
-    document.querySelector("#cardNumber").setAttribute('value',paymentInfo.card.number);
+    document.querySelector("#cardNumber").value = paymentInfo.card.number
     document.querySelector("#cardExpiryDate").value = paymentInfo.card.date;
     document.querySelector("#securityCode").value = paymentInfo.card.cvv;
 
@@ -44,7 +44,5 @@ const clickCard = () => {
     document.querySelector("#mainContent > div.two-column.container.no-gutters > div > div.left-column.col-7.col-lg-8 > section.module.payment-methods.auto-address-container > div").style.opacity = "1"
 }
 
-
-
-
 clickCard()
+
